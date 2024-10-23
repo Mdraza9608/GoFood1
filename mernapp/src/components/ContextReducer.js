@@ -15,9 +15,12 @@ const cartReducer = (state, action) => {
                 price: action.price,
                 qty: action.qty,
                 size: action.size,
-                img:action.img
+                img: action.img
             }];
-       
+            case "REMOVE":
+                let newArr = [...state]
+                newArr.splice(action.index, 1)
+                return newArr;
         default:
             return state;
     }
