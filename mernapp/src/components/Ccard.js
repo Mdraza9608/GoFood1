@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState,useRef, useEffect  } from 'react';
 import { useDispatchCart, useCart}  from './ContextReducer';
 
 export default function Ccard(props) {
-    const dispatch = useDispatchCart(); // Ensure useDispatchCart is working correctly
-    const data = useCart(); // Access cart data from the context
-    const options = props.options;
-    const priceOptions = Object.keys(options);
-
+    let dispatch = useDispatchCart(); // Ensure useDispatchCart is working correctly
+    let data = useCart();  // Access cart data from the context
+    const priceRef = useRef();
+    let options = props.options;
+    let priceOptions = Object.keys(options);
+   
     const [qty, setQty] = useState(1);
     const [size, setSize] = useState(" ");
 
@@ -15,13 +16,18 @@ export default function Ccard(props) {
             type: "ADD",
             id: props.foodItem._id,
             name: props.foodItem.name,
-            price: props.finalPrice,
+            price: finalPrice,
             qty: qty,
             size: size
         });
         console.log(data); // Check cart data
-    };
-
+    }
+         let finalPrice =qty * parseInt(options[size]);
+         useEffect(() => {
+            setSize(priceRef.current.value)
+          }, [])
+        
+         
     return (
         <div>
             <div>
@@ -37,16 +43,17 @@ export default function Ccard(props) {
                                 ))}
                             </select>
 
-                            <select className='m-2 h-100 bg-success rounded' onChange={(e) => setSize(e.target.value)}>
+                            <select className='m-2 h-100 bg-success rounded' ref={priceRef} onChange={(e) => setSize(e.target.value)}>
                                 {priceOptions.map((data) => (
                                     <option key={data} value={data}>{data}</option>
                                 ))}
                             </select>
                             <div className='d-inline h-100 fs-5'></div>
-                            Total Price
-                        </div>
-                    </div>
-                    <hr />
+                            ₹{finalPrice}/-
+                             </div>
+                         </div>
+                            <hr></hr>
+                    
                     <button className={'btn btn-success justify-center ms-2'} onClick={handleAddToCart}>
                         Add to Cart
                     </button>

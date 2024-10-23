@@ -1,33 +1,42 @@
-import React, { createContext, useContext, useReducer } from 'react'
+import React, { createContext, useReducer, useContext } from 'react';
 
-//import { use } from '../../backend/Routes/CreateUser';
-
+// Create two contexts: one for the cart state, and one for dispatch
 const CartStateContext = createContext();
 const CartDispatchContext = createContext();
 
-const reducer =(state, action)=>{
- switch(action.type){
-    case"Add":
-    return [...state, { id: action.id, name: action.name, qty: action.qty, size: action.size, price: action.price, img: action.img }]
-   
-    default:
-        console.log("Error in Reducer");
-}
+// Define the reducer to handle actions (like ADD, REMOVE)
+const cartReducer = (state, action) => {
+    switch (action.type) {
+        case "ADD":
+            // Logic for adding an item to the cart
+            return [...state, {
+                id: action.id,
+                name: action.name,
+                price: action.price,
+                qty: action.qty,
+                size: action.size,
+                img:action.img
+            }];
+       
+        default:
+            return state;
+    }
 };
 
-export const CartProvider =({children})=>{
+// Create a provider component that wraps the entire app or relevant parts
+export const CartProvider = ({ children }) => {
+    const [state, dispatch] = useReducer(cartReducer, []); // Initialize state as an empty array
 
-    const[state,dispatch] = useReducer(reducer,[])
-
-    return(
+    return (
+        // Pass down the cart state and dispatch function to the entire tree
         <CartStateContext.Provider value={state}>
-   <CartDispatchContext.Provider vlaue={dispatch}>
-     
-        {children}
-   </CartDispatchContext.Provider>
-   </CartStateContext.Provider>
-    )
+            <CartDispatchContext.Provider value={dispatch}>
+                {children}
+            </CartDispatchContext.Provider>
+        </CartStateContext.Provider>
+    );
 };
 
-export const useCart=() => useContext(CartStateContext);
-export const useDispatchCart=() => useContext(CartDispatchContext);
+// Custom hooks to use the Cart state and dispatch
+export const useCart = () => useContext(CartStateContext);
+export const useDispatchCart = () => useContext(CartDispatchContext);
