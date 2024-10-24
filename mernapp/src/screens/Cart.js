@@ -1,6 +1,5 @@
 import React from 'react'
 import Delete from '@material-ui/icons/Delete'
-//import trash from "../trash.svg"
 import { useCart, useDispatchCart } from '../components/ContextReducer';
 export default function Cart() {
   let data = useCart();
@@ -12,7 +11,11 @@ export default function Cart() {
       </div>
     )
   }
-  
+  // const handleRemove = (index)=>{
+  //   console.log(index)
+  //   dispatch({type:"REMOVE",index:index})
+  // }
+
   const handleCheckOut = async () => {
     let userEmail = localStorage.getItem("userEmail");
     // console.log(data,localStorage.getItem("userEmail"),new Date())
@@ -29,7 +32,7 @@ export default function Cart() {
         order_date: new Date().toDateString()
       })
     });
-    console.log("JSON RESPONSE:::::", response.status)
+    console.log("Order RESPONSE:::::", response)
     if (response.status === 200) {
       dispatch({ type: "DROP" })
     }
