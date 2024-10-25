@@ -29,7 +29,7 @@ const handleLogout=()=>{
         </li>
         {(localStorage.getItem("authToken"))?
         <li className="nav-item">
-          <Link className="nav-link active fs-5" aria-current="page" to="/">My Orders</Link>
+          <Link className="nav-link active fs-5" aria-current="page" to="/myOrder">My Orders</Link>
         </li>
          :""} 
 
@@ -39,7 +39,7 @@ const handleLogout=()=>{
           <Link className="btn bg-white text-success mx-2" to="/login">login</Link>
         
         
-          <Link className="btn bg-white text-success mx-1" to="/Createuser">Signup</Link>
+          <Link className="btn bg-white text-success mx-1" to="/CreateUser">Signup</Link>
            </div>
            :
            <div>
