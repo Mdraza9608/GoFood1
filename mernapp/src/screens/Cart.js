@@ -7,7 +7,7 @@ export default function Cart() {
   if (data.length === 0) {
     return (
       <div>
-        <div className='m-5 w-100 text-center fs-3'>The Cart is Empty!</div>
+        <div className='m-5 w-100 text-center fs-3'style={{ color: 'red' }}>The Cart is Empty!</div>
       </div>
     )
   }
@@ -58,12 +58,12 @@ export default function Cart() {
           <tbody>
             {data.map((food, index) => (
               <tr>
-                <th scope='row' >{index + 1}</th>
-                <td >{food.name}</td>
-                <td>{food.qty}</td>
-                <td>{food.size}</td>
-                <td>{food.price}</td>
-                <td ><button type="button" className="btn p-0"><Delete onClick={() => { dispatch({ type: "REMOVE", index: index }) }} /></button> </td></tr>
+                <th scope='row' style={{ color: 'white' }}>{index + 1}</th>
+                <td style={{ color: 'yellow' }}>{food.name}</td>
+              <td style={{ color: 'white' }}>{food.qty}</td>
+              <td style={{ color: 'orange' }}>{food.size}</td>
+              <td style={{ color: 'white' }}>{food.price}</td>
+                <td ><button type="button" className="btn p-0 " style={{ backgroundColor: "red", color: "white" }}><Delete onClick={() => { dispatch({ type: "REMOVE", index: index }) }} /></button> </td></tr>
             ))}
           </tbody>
         </table>
