@@ -39,7 +39,7 @@ const handleLogout=()=>{
           <Link className="btn bg-white text-success mx-2" to="/login">login</Link>
         
         
-          <Link className="btn bg-white text-success mx-1" to="/CreateUser">Signup</Link>
+          <Link className="btn bg-white text-success mx-1" to="/Createuser">Signup</Link>
            </div>
            :
            <div>
