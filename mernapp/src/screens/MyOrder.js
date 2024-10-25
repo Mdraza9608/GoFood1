@@ -48,6 +48,7 @@ export default function MyOrder() {
                                 data.orderData.order_data.slice(0).reverse().map((item) => {
                                     return (
                                         item.map((arrayData) => {
+                                            console.log(arrayData.img);
                                             return (
                                                 <div  >
                                                     {arrayData.Order_date ? <div className='m-auto mt-5'>
@@ -85,7 +86,7 @@ export default function MyOrder() {
                                     )
                                 }) : ""
                         )
-                    }) : ""}
+                    }) : "please order something"}
                 </div>
 
 
