@@ -23,8 +23,7 @@ router.post('/orderData', async(req, res) => {
          })
      } catch (error) {
          console.log(error.message)
-         res.send("Server Error", error.message)
-
+         res.status(500).send({ error: "Server Error", message: error.message })
      }
  }
 
@@ -36,21 +35,10 @@ router.post('/orderData', async(req, res) => {
              })
      } catch (error) {
          console.log(error.message)
-         res.send("Server Error", error.message)
+         res.status(500).send({ error: "Server Error", message: error.message })
      }
  
     }
-
-// router.post('/myOrderData', async (req, res) => {
-//  try {
-//      console.log(req.body.email)
-//      let eId = await Order.findOne({ 'email': req.body.email })
-//      //console.log(eId)
-//      res.json({orderData:eId})
-//  } catch (error) {
-//      res.send("Error",error.message)
-//  }
- 
 
 })
 
