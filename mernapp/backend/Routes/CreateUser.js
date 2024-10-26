@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken")
 const bcrypt = require("bcryptjs");
 const jwtSecret ="MynameisGOFOOD#$"
 
-router.post("/CreateUser", [
+router.post("/createuser", [
     body('email').isEmail(),
     body('name').isLength({ min: 5 }),
     // password must be at least 5 chars long

@@ -15,8 +15,8 @@ export default function MyOrder() {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body:JSON.stringify({
-                email:localStorage.getItem('userEmail')
+            body: JSON.stringify({
+                email: localStorage.getItem('userEmail')
             })
         }).then(async (res) => {
             let response = await res.json()
@@ -49,6 +49,7 @@ export default function MyOrder() {
                                     return (
                                         item.map((arrayData) => {
                                             console.log(arrayData.img);
+                                            const imageUrl = arrayData.img ? arrayData.img.trim() :'https://via.placeholder.com/150';
                                             return (
                                                 <div  >
                                                     {arrayData.Order_date ? <div className='m-auto mt-5'>
@@ -59,7 +60,7 @@ export default function MyOrder() {
 
                                                         <div className='col-12 col-md-6 col-lg-3' >
                                                             <div className="card mt-3" style={{ width: "16rem", maxHeight: "360px" }}>
-                                                                <img src={arrayData.img} className="card-img-top" alt="..." style={{ height: "120px", objectFit: "fill" }} />
+                                                                <img src={imageUrl} className="card-img-top" alt="..." style={{ height: "120px", objectFit: "fill" }} />
                                                                 <div className="card-body">
                                                                     <h5 className="card-title">{arrayData.name}</h5>
                                                                     <div className='container w-100 p-0' style={{ height: "38px" }}>
@@ -84,9 +85,11 @@ export default function MyOrder() {
                                         })
 
                                     )
-                                }) : ""
+                                }) : <div style={{ fontWeight: 'italic', color: 'red', fontSize: '20px' }}>
+                                    PLEASE ORDER SOMETHING !
+                                </div>
                         )
-                    }) : "please order something"}
+                    }) : ""}
                 </div>
 
 
