@@ -57,10 +57,10 @@ export default function Home() {
       <img src="./burger.jpg" className="d-block w-100" style={{ filter:"brightness(30%)"}}alt="..."/>
     </div>
     <div className="carousel-item">
-      <img src="..." className="d-block w-100" alt="..."/>
+      <img src="./burger2.jpg" className="d-block w-100" alt="..."/>
     </div>
     <div className="carousel-item">
-      <img src="..." className="d-block w-100" alt="..."/>
+      <img src="./photo1.jpg" className="d-block w-100" alt="..."/>
     </div>
   </div>
   <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
