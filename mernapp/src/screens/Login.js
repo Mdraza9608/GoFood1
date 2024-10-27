@@ -17,7 +17,7 @@ const handleSubmit = async (e) => {
     const json = await response.json()
     console.log(json);
 
-    if(!json.success){
+    if(json.success){
         alert("enter valid credentials")
     }
     if(json.success){
