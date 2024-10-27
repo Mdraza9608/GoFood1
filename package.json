@@ -1,4 +1,25 @@
 {
+<<<<<<< HEAD
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "end to end",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@material-ui/icons": "^4.11.3",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "express-validator": "^7.2.0",
+    "json": "^11.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^6.10.0",
+    "nodemon": "^3.1.7"
+=======
   "name": "mernapp",
   "version": "0.1.0",
   "private": true,
@@ -41,5 +62,6 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+>>>>>>> d31cff7fb6f9f7d660485b975c894a4bd2e1926c
   }
 }
