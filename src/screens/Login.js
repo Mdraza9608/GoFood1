@@ -17,10 +17,10 @@ const handleSubmit = async (e) => {
     const json = await response.json()
     console.log(json);
 
-    if(!json.success){
+    if(json.success){
         alert("enter valid credentials")
     }
-    if(json.success){
+    if(!json.success){
         localStorage.setItem("userEmail",credentials.email);
       localStorage.setItem("authToken",json.authToken);
      console.log(localStorage.getItem("authToken"))
